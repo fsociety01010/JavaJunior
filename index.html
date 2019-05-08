@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8" />
+    <meta name="keywords" content="text, html, css" />
+    <meta name="description" content="trying to make first site with html and css" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.shareicon.net/data/128x128/2016/06/19/603744_html_512x512.png" />
+    <title>3 LVL OF HTML5 & CSS3</title>
+</head>
+    
+<body>
+   <b><h2> Група СНз-41 
+<br> 
+       Агарков Олександр Володимирович<br/>
+       Дата створення документу: 27.11.2016 <br/>
+       Поточна дата: 30.11.2018
+<br>
+       
+<?php
+print "Дата створення документу: 24.11.2016 <br>";
+$today = date("j.m.Y");
+print "Поточна дата: $today <br>";
+?>
+Завдання: 
+<img src="6.png" alt="">
+</h2></b>
+
+ 
+<form action="lab6.php" method="post"> 
+<p>Рядки логування ping: <input type="text" name="name" size="60"></p> 
+<p><input type="submit"></p> 
+</form> 
+    
+<?php 
+$str= htmlspecialchars($_POST['name']); 
+$ptn = "/time 
+preg_match_all($ptn=.{5}/";, $str, $time, PREG_SET_ORDER); 
+$count = count($time);
+if ($count != 0){
+for($i=0; $i<$count; $i++){ 
+echo "<div class='div1'>";
+echo "Номер рядка: ", $i+1, " час відповіді: ",  $time[$i][0]," <br>"; 
+echo "</div>";
+}
+}
+else{
+echo "<div class='div2'>";
+echo "Неправильно введені дані <br><br>";
+echo "</div>";
+}
+$filename = 'lab6.php'; 
+
+?>
+
+</body>
+
+</html>
