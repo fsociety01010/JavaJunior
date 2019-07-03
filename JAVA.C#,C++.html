@@ -1,0 +1,339 @@
+<pre>
+    
+    С++
+JAVA
+C#
+/*
+Types of data
+    byte = 0 to 255;    
+    sbyte = - 127 to 127;
+    char = 'a';
+    short = +- 32 000;
+    int = +-2 147 483 647;
+    uint = 4 294 967 295;
+    long (ulong) = 8 400 000 000;
+    
+    float (ufloat) = 23,53f;
+    double (udouble) = 12,123123d;
+    
+    decimal = 
+    
+    bool = true or false;
+
+    string = "hello world";
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+модифікатори доступу для полів
+public - видно по всюди, інші класи, програми, пакети(збірки)
+private(default) - видно лише в власному класі
+protected - видно лише при наслідуванні
+internal - то саме шо public, але не видно в програмах і пакетах
+protected internal 
+private protected
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Константа обявляється прописування const
+c/c++, c# - сonst;
+java - final;
+
+static - робить обєкт статичним в C++,C#,Java - однаково але
+В Java/C++ доступ до static полів і медів є через клас і через обєкти класу
+в С# доступ до static полів і медів є ЛИШЕ через клас 
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+ARRAYS
+C++         int numbers[5][2];  через указатель int **numbers = new int [5][2];
+Java        int[][] numbers = new int[5][2];
+C#          int[5,2] numbers = new int [5,2]
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Динамічний масив
+    List<int> hi = new List<int>();
+    Array.Clear(array,lenght)   ---- чистить масив, видаляє дані
+    hi.CopyTo(array, index);    --- копією масив hi в array
+    hi.Add(value)        ---- додає в кінець масиву
+    hi.AddRange(array)   ---- добавляє масив до масиву hi
+    hi.Insert(index,value)     --- вставляє елемент
+    hi.Remove(value)         ---- видаляє по значенню,а не по індексу
+    hi.RemoveAt(index)       ---- видаляє по індексу
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Loop For+++
+    C++ and Java
+        for ( int element : array)
+            to do...
+    C#  
+        foreach ( int element in array)
+            to do...
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Передача по силці
+перед int[] arr пишемо ref -> ref int[] arr
+або якшо лише передати перемінну яка не в зоні видимості, то перед нею out   -> out int summa;
+
+Передача невизначеної кількості параметрів ставиться перед params 
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+Templates in C++ and Generics in C#
+___________________________________________C++______________________________________________
+
+template <class T1, class T2>                   template <class T1>
+T1 adding (t1 a, t2 b)                          class Car {
+{                                                   .......
+    to do...                                    }
+}
+
+___________________________________________C#___________________________________________
+
+public static void adding <T1> (T1 a, ...)      public class Car <T1>
+{                                               {
+    to do...                                        public T1 name;
+}                                               }
+
+
+
+    
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+COLLECTIONS
+{
+ArrayList  ---  ArrayList arr = new ArrayList();
+в нього можна записувати різні типи даних;
+}
+Dictionary
+{
+Dictionary <TKey,TValue> dict = new Dictionary <Tkey,TValue>();
+словник ключ -> значення ( нагадує map в C++)
+}
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Запис в файл
+
+  1)   File.WriteAllText(path, words);
+       File.ReadAllLines(words);
+
+  2)    string path = "newtxt.txt";
+        string words = "Welcome to threading of C#";
+        
+        FileStream fs = File.Open(path, FileMode.OpenOrCreate);
+        byte[] bytearr = Encoding.Default.GetBytes(words);
+        fs.Write(bytearr, 0, bytearr.Length);
+        
+
+        byte[] byteRead = new byte[bytearr.Length];
+        for (int i = 0; i < byteRead.Length; i++)
+        byteRead[i] = (byte)fs.ReadByte();
+        string readSTR = Encoding.Default.GetString(byteRead);
+        fs.close();
+  
+    3   StreamWriter sw = File.CreateText(path);
+        sw.Write(words);
+        sw.Close();
+  
+        StreamReader sr = File.OpenText(path)
+        Console.WriteLine(sr.ReadToEnd());
+        sr.Close();
+Запис в файл в Java
+    File fp = new File("text.txt)
+     if(!file.exists())
+         file.CreateNewFile();
+     PrintWrite pw = new PrintWrite("text.txt");
+     pw.println("text");
+     pw.close();
+
+    BufferedReader bf = new BufferedReader(new FileReader("text.txt"));
+    String str;
+    while ((str = bf.readLine()) != null)
+        System,out.println(str);
+    bf.close();
+
+Запис в файл С++
+1)  ofstream out ( out of system > in file)
+    out.open ("text.txt", ios::app);
+    out << "hello world" << endl;
+    out.close();
+2)  ifstream in ( in system,from file)
+    in.open("text.txt"
+    while( getline(in, str))
+        cout << str << endl;
+    in.close();
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Virtual and abstract
+_________________________C++_____________________________________
+class Car{                                      class Car{
+    virtual void start (){                          virtual void start () = 0;
+        to do.....
+    }
+}
+
+class BMW: public Car{                          class BMW: public Car{
+    override void start(){                          override void start(){
+        to do....                                       to do...
+    }                                               }
+}                                               }
+________________________C#_________________________________________________
+public class Car{                               public abstract class Car{
+    public virtual void start (){                   public abstract void start () = 0;
+        to do.....
+    }
+}
+
+public class BMW: Car{                          class BMW:  Car{
+    public override void start(){                   public override void start(){
+        to do....                                       to do...
+    }                                               }
+}                                               }
+
+__________________________JAVA___________________________________________________
+public class Car{                              public abstract class Car{
+    public void start (){                            public abstract void start () {};
+        to do.....
+    }
+}
+
+public class BMW extends Car{                  public class BMW extends Car{
+     @Override                                       @Override
+     public void start(){                            public void start(){
+        to do....                                          to do...
+    }                                                }
+}                                              }
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Interfaces in JAVA  ( class BMW implements ICar)
+methods: public,abstract;
+values: public,final,static;
+
+Interfaces in C#
+методи пише лише з типом данних, без всяких модифікаторів і тіла методу
+void adding();
+int calcul();
+
+полів інтрефейс не може мати, лише через аксесор
+int count {get;set;} -- правильно
+int count = 5; -------- не правильно
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+наслідування в С++
+class BMW : public Car
+
+C#
+class bmw : Car ( ICar(interface)
+
+Java
+class BMW extends Car -> for class
+class BMW explicit ICar -> for interface  
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Accesor (АКСЕСОР)
+
+public int count { get; set; };
+public int Count {
+    get { 
+        return count;
+        }
+    set {
+        this.count = value;
+        }
+}
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+ENUM
+С++
+enum days { monday,tuesday,friday = 5, sunday = 7};
+days DaysOfWeek;
+C#
+enum Days { MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY}
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+C++
+1) class 2) struct 3) union
+Java
+1)class 2)interface
+C#
+1)class 2)interface 3)struct
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+C#
+is - провірка чи відповідає цьому типу данних
+object is User
+
+as - пытается преобразовать выражение к определенному типу, при этом не выбрасывает исключение. 
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+__________________________________delegate - указатель на функцію в С#_____________________________________
+delegate int  Message(int a,int b);
+private static int Add(int a,int b)
+{ to do.... return ...}
+Message msg = Add;
+
+Делегат, це той самий указатель на функцію в С++ через 
+void (funk*)(int a,int b) 
+або std::function<void,int,int> refFunc = Add;
+
+тому в нього так само можна поміщати лямбду функцію
+
+msg = element -> elem*elem
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Лямбда функція 
+_______C++________________
+int result;
+[&result](int a,int b){
+    result = a + b;
+}
+auto function = [](int a,int b){
+    result = a + b;
+}
+_______________C#__________
+в шарпі в лямбдах записують лише короткі вирази
+delegate int Message(int a);
+Message msg = (elemnt )=>  (elemnt*elemnt);
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+``auto`` in C++ == ``var`` in C#
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+LINQ
+numbers.Where(man is Human) - вибирає лише той, що відповідає умові
+numbers.Select(lambda) - вибирає кожен елемент
+numbers.Distinct - вертає дані без повторень
+numbers.Aggregate((x, y)=> x + y) - вибирає два елемента з numbers(1 і 2, потім 2 і 3, 3 і 4)
+numbers.Zip(digits,(x, y) => x +y) - вибирає по кожному елементу з двох масивів, елемент_1 з numbers,елемент_1 з digits і тдп 
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+____________Threading_________________
+__________C#_________
+Thread tr = Thread.CurrentThread;
+tr.Name = "Main thread";
+Console.WriteLine(tr.Name);
+Console.WriteLine(tr.Priority);
+Console.WriteLine(tr.ThreadState);
+Console.WriteLine(tr.IsAlive);
+
+___________C++____________
+thread th(fuction,input value,input value,std::ref(value);
+th.join();
+th.detach();
+this_thread::sleep_for(2000)
+this_thread::get_id();
+
+_________JAVA_____________
+extrends Threads
+описувати віртуальний клас run()
+а запускати через start();
+
+або імплементити Runnable
+реалізовувати метод run
+потім створюємо обєект
+Thread th = new Thread(new MyThread(),"name");
+th.start();
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+*/
+
+</pre>
