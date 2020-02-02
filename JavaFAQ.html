@@ -314,3 +314,19 @@ Servlets
 {
     resp.sendRedirect(req.getContextPath() + "/notfound.html");
 }
+
+__________________________________________________________________________________________________________________
+***JDBC***
+
+берем Connection from DriverManager
+
+3 types of statement
+- Statement
+- PreparedStatement
+- CallableStatement
+
+і в них пишем SQL запит
+**********************************************
+всі вони видають ResultSet з якого дістаємо результати
+
+також ми можемо редагувати напряму базу данних, якщо після квері добавимо ResultSet.TYPE_SCROLL_SENSITIVE i ResultSet.CONCUR_WRITE..
