@@ -299,7 +299,18 @@ _____________Hibernate_____________________
      отримувати надсилати бази даних
      які класи на які таблиці відображаються
 
-
-   
     
 __________________________________________________________________________________________________________________
+
+Servlets
+
+Перенаправлення ( без зміни адреси)
+{
+    ServletContext context = getServletContext();
+    RequestDispatcher dispatcher = context.getRequestDispatcher("/notfound.html");
+    dispatcher.forward(req,resp);
+}
+переадресація ( зі зміною адреси)
+{
+    resp.sendRedirect(req.getContextPath() + "/notfound.html");
+}
