@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <script>
+        arr = [333, true, "sss", 55, 55];
+        arr[7] = 55;
+        arr[11] = 77;
+
+        console.log(...arr);
+        console.log("arr = " + arr);
+
+        console.log("for (var i in arr) { } - получение типов элементов массива");
+        for (var i in arr) { // Пропустит undefined-элементы массива. Вместо идущих подряд одинаковых типов, отобразит только 1 тип.
+            console.log(typeof(arr[i]));
+        }
+
+        console.log("for (var i in arr) { }");
+        for (var i in arr) { // Пропустит undefined-элементы массива. Вместо идущих подряд одинаковых элементов, отобразит только 1 элемент.
+            console.log(arr[i]);
+        }
+
+        console.log("for (var a of arr) { }");
+        for (var a of arr) { // Для неопределенных и определенных одинаковых элементов, идущих подряд, отобразит только 1 элемент.
+            console.log(a);
+        }
+
+        console.log("for (var i = 0; i < arr.length; i++) { }");
+        for (var i = 0; i < arr.length; i++) { // Для неопределенных и определенных одинаковых элементов, идущих подряд, отобразит только 1 элемент.
+            console.log(arr[i]);
+        }
+    </script>
+</body>
+
+</html>

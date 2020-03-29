@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/tatice/cristal-intense/256/Java-icon.png">
+    <title>About eveything and nothing</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: blue;
+        }
+        
+        a:hover {
+            color: #ffe;
+            background-color: #5488af;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        pre {
+            border: 1px solid Black;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        img {
+            border: 1px dotted;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MENU</h1>
+    <table width=100% style="font-weight:bold" cellspacing="5" border="5px solid">
+        <tr>
+            <td><a href="#GIT">GIT</a></td>
+        </tr>
+        <tr>
+            <td><a href="#IDEA">Idea</a></td>
+        </tr>
+        <tr>
+            <td><a href="#Java Core">Java Core</a></td>
+        </tr>
+        <tr>
+            <td><a href="#Servlets">Servlets</a></td>
+        </tr>
+        <tr>
+            <td><a href="#JSP">JSP</a></td>
+        </tr>
+        <tr>
+            <td><a href="#JSTL">JSTL</a></td>
+        </tr>
+        <tr>
+            <td><a href="#SQL">SQL</a></td>
+        </tr>
+        <tr>
+            <td><a href="#JDBC">JDBC</a></td>
+        </tr>
+        <tr>
+            <td><a href="#Hibernate">Hibernate</a></td>
+        </tr>
+        <tr>
+            <td><a href="#JPA">JPA</a></td>
+        </tr>
+
+        <tr>
+            <td><a href="#Spring">Spring</a></td>
+        </tr>
+        <tr>
+            <td><a href="#JUnit">JUnit</a></td>
+        </tr>
+
+    </table>
+    <hr>
+
+    <h3 id="GIT">GIT</h3>
+    <pre>
+      git clone ADRESS ---- добавляє репозиторій на комп
+      git pull  --- обновляє файли з GIT
+      git status --- показує статус файлів
+
+      .........добавляння в репозиторій......
+      git add name.html -добавляєш в список новий файл
+      git add -A  ---- добавляє в список всі модифіковані і нові файли
+      git commit -m "what`s new" --- опис файла
+      git push  -- заливаєш
+
+      .........видаляння......
+      git rm file1.txt
+      git commit -m "remove file1.txt"
+
+      Но если вы хотите удалить файл только из репозитория Git и не удалять его из файловой системы, используйте:
+      git rm --cached file1.txt
+      git commit -m "remove file1.txt"
+
+      якщо не паше SSH,а з ключом все ок - то проблема в URL 
+      рішається вот такою строкою
+      git remote set-url origin git@github.com:fsociety01010/імяПакету.git
+
+      або йти в папку гіт самого пакета, а там шукати конфіт і в ньому міняти origin/master на
+      git@github.com:fsociety01010/імяПакету.git
+    </pre>
+    <hr>
+
+    <h3 id="IDEA">Idea</h3>
+    <pre>
+      ***********IDEA*********
+      CTRL+SHIFT+A -> і пошук і настройки і файли! шукає все шо хочеш
+      CTRL+SHIFT+F -> розширений пошук по проекту
+      CTRL+R -> replace
+      CTRL+SHIFT+R -> SUPER replace
+      CTRL+Q ->маленька документація
+      CTRL+SHIFT+I -> показує кусочок виділеного коду в новому вікні
+      CTRL+P -> View param
+
+      Run Java program        	      ctrl+shift+F10
+      Organize imports	              ctrl+alt+o
+      System.out.println()    	      Type sout and press ctrl+j
+      Delete current line	            ctrl + y
+      Search	                        ctrl + shift + f
+      Generate getter and setter	    alt + insert
+      Format code                   	ctrl + alt + l
+
+      Comment out code	              ctrl + /
+      Go to line                      ctrl + g
+      Go to declaration	              ctrl + b
+      Rename	                        shift+F6
+      Move lines	                    ctrl + shift + up/down
+
+    </pre>
+    <hr>
+
+    <h3 id="Java Core">Java Core</h3>
+    <pre>
+      Type of DATA
+
+boolean: хранит значение true или false
+byte: хранит целое число от -128 до 127 и занимает 1 байт
+short: хранит целое число от -32768 до 32767 и занимает 2 байта
+int: хранит целое число от -2147483648 до 2147483647 и занимает 4 байта
+long: хранит целое число от –9 223 372 036 854 775 808 до 9 223 372 036 854 775 807 и занимает 8 байт
+float: хранит число с плавающей точкой от -3.4*1038 до 3.4*1038 и занимает 4 байта
+double: хранит число с плавающей точкой от ±4.9*10-324 до ±1.8*10308 и занимает 8 байт
+var приймає любий обєкт, але має бути ініціалізований при обявленні}
+char: символ
+
+instanceof == то саме шо ``is`` в С#
+___________________________________________________________________________________________________________________
+    final
+
+змінні - не можна змінювати, ініціалізація при створенні;
+методи - не можна переоприділяти;
+класи - не можна наслідувати;
+___________________________________________________________________________________________________________________
+class
+коли клас абстрактний, то він просто має мати 1 абстрактну функцію і не може мати обєктів своїх.
+але поля і інші методи може мати
+___________________________________________________________________________________________________________________
+interface
+за допомогою default - можна роботи метод, який матиме своє тіло, яке юзається тіки тоді, коли не
+реалізували той метод
+
+також, методи може бути static, як в класах і мати своє тіло
+
+також метод може бути private, але чисто для юзання всередині інтерфейсу
+___________________________________________________________________________________________________________________
+ENUM
+в собі може мати конструктор(який йде як прайвет) і різні методи
+має метод values() який повертає всі константи данного enum
+ordinal() - повертає номер за яким стоїть певна константа
+
+enum Color{
+    RED("#FF0000"), BLUE("#0000FF"), GREEN("#00FF00");
+    private String code;
+    Color(String code){
+        this.code = code;
+    }
+    public String getCode(){ return code;}
+}
+
+ System.out.println(Color.RED.getCode());        // #FF0000
+___________________________________________________________________________________________________________________
+виводити текст можна як
+System.out.print; - вивід без абзацу
+System.out.println; - вивід з абзацом
+System.out.printf;  - вивід як в С , через %     System.out.printf("%25.3f \n%25.9f", a, b)
+
+___________________________________________________________________________________________________________________
+Scanner in = new Scanner(System.in);
+
+передача в параметри методу невідому кількість інтів
+c# - params int[] b
+java - int ...b
+ОБОВЯЗКОВО ОБЯВЛЯТИ ВКІНЦІ!
+___________________________________________________________________________________________________________________
+функцию округления
+int b = (int)Math.round(a);
+___________________________________________________________________________________________________________________
+EXCEPTION ex
+ex.printStackTrace() -выводу на консоль стека трассировки ошибки с помощью метода
+ex.GetMessage() - сообщение об исключении
+___________________________________________________________________________________________________________________
+
+GENERICS
+
+class Account<T>
+
+interface Accountable<T>
+
+public <T> void print(T[] items)
+    printer.<Integer>print(numbers);
+
+Для установки ограничения после универсального параметра
+ставится слово extends, после которого указывается базовый класс ограничения:
+class Transaction<T extends Account>{ }
+
+можно установить сразу несколько ограничений
+class Transaction<T extends Person & IAccountable>{}
+___________________________________________________________________________________________________________________
+
+Object - це клас всіх класів
+якщо обєкти рівні один одному, тобто equals = true, то і hashcode у них однаковий, в іншову випадку - ексепшн
+
+string він є неіміняємим класом, тобто immutable
+а клас StringBuilder - він є mutable, тобто може змінюватись під час виконання
+java має пізднє звязування, тому всі методи по замовчуванню віртуальні
+
+_____________Колекції_______________
+1)Коллекції
+    1.1) LinkedList - двухсвязний список ( кращий для додавання, видаляння)
+    1.7) ArrayList - список на основі масиву ( кращий для доступу)
+    1.8) Vector - динамічний масив з методами списку
+
+    1.2)Set  список без дублікатів
+    1.3)Queue просто очередь
+    1.4)Deque двунаправлена очередь
+    1.5)Map - ключ значення
+    1.6)HashMap - швидка реалізація Map але  ключі унікальні ( без повторень)
+       хешмап це масив, а індекс оприділяється по хешкоду ключа і довжині масиву
+
+    1.6.1)LinkedHashMap - упорядкована реалізація HashMap (красно чорного дерева)
+     это упорядоченная реализация хэш-таблицы. Здесь, в отличии от HashMap,
+     порядок итерирования равен порядку добавления элементов.
+
+    1.6) HashSet - оснований на HashMap,а тут ще і данні унікальні
+
+    1.6.2) LinkedHashSet - упорядкований HashSet
+
+ArrayList: простой список объектов
+
+LinkedList: представляет связанный список
+
+ArrayDeque: класс двунаправленной очереди, в которой мы можем произвести вставку и удаление как в начале коллекции, так и в ее конце
+
+HashSet: набор объектов или хеш-множество, где каждый элемент имеет ключ - уникальный хеш-код
+
+TreeSet: набор отсортированных объектов в виде дерева
+
+LinkedHashSet: связанное хеш-множество
+
+PriorityQueue: очередь приоритетов
+
+HashMap: структура данных в виде словаря, в котором каждый объект имеет уникальный ключ и некоторое значение
+
+TreeMap: структура данных в виде дерева, где каждый элемент имеет уникальный ключ и некоторое значение
+
+
+_____________EXCEPTION______________
+   1)Exception (cheked) тре обробляти
+        SQLException
+        IOException
+    RuntimeException(uncheked)
+        IndexOutOfBoundsException
+        ArithmeticException
+        ClassCatException
+        NoSuchElementException
+
+   2)Error (uncheked), не тре їх обробляти в блоці трай кетч
+        VirtualMachineError
+           StackOverflowError
+           OutOfMemoryError
+
+    try with resources?
+        це інтерфейс AutoCloseable
+    компілятор сам неявно створює finally і закриває ресурс
+
+
+_________THREADING_______________
+    через інтерфейс Runnable або через клас Thread
+
+   1) class SomeTh implements Runnable
+        public void run()
+        {
+            //code
+        }
+    АБО
+   2) сlass SomeThre extends Thread
+        @Override
+        public void run()
+        {
+            //code
+        }
+
+    public static void main(String[] args)
+   1)
+        Thread th = new Thread(new Someth())
+        th.start();
+
+   2)   SomeThre sm = new SomeThre();
+        sm.start();
+
+
+Шоб контролювати коли який потік. тре їх синхронізувати
+ - synchronized + треба заглушку як lock в c#, якийсь обєкт не примітивного типу
+ - wait/notify
+ wait(): освобождает монитор и переводит вызывающий поток в состояние ожидания до тех пор,
+пока другой поток не вызовет метод notify()
+notify(): продолжает работу потока, у которого ранее был вызван метод wait()
+ - join  так як в с++
+ - yield - pass your queue
+ - Семафоры
+
+ Lock lock = new ReentrantLock();
+ Condition c = lock.getCondition
+ c.await/signal
+
+ _______Stream API____
+
+  cities.stream() // получаем поток
+            .filter(s->s.length()==6) // применяем фильтрацию по длине строки
+            .forEach(s->System.out.println(s)); // выводим отфильтрованные строки на консоль
+            sorted()  // сортуємо
+
+Метод skip(long n) используется для пропуска n элементов. Этот метод возвращает новый поток,
+в котором пропущены первые n элементов.
+
+Метод limit(long n) применяется для выборки первых n элементов потоков.
+Этот метод также возвращает модифицированный поток, в котором не более n элементов.
+
+Чтобы сделать обычный последовательный поток параллельным, надо вызвать у объекта Stream
+ метод parallel. Кроме того, можно также использовать метод parallelStream() интерфейса
+ Collection для создания параллельного потока из коллекции.
+
+phones.parallelStream()
+    .sorted()
+    .forEachOrdered(s->System.out.println(s));
+
+
+ _______PATTERN______
+
+ GoF Gang of Four
+ 1) creational
+ 2)structural
+ 3)behavior
+
+ MVC
+ Model - це дані нашої програми, описується стан
+ View - відповідає за відображення, і реагує на зміну моделі, сама підтягує
+ Controller - реагує на зміни користувача і оповіщаю модель що тре міняти
+
+ MVVM
+ Model
+ Viev
+ ModelView
+
+ MVP
+ Model
+ Viev
+ Presenter
+
+ SOLID
+ S- Single responsibility principle - кожен обєкт має виконувати лише один обовязок
+ O- Open/closed principle(класи відкриті для розширення, закриті для редагування)
+ L- Liskov substitution principle(Об'єкти в програмі можуть бути заміненими їх нащадками без зміни коду програми.)
+ I- Interface segregation principle (Багато спеціалізованих інтерфейсів краще за один універсальний)
+ D- Dependency inversion principle(Залежності всередині системи будуються на основі абстракцій, що не повинні
+    залежати від деталей; навпаки, деталі мають залежати від абстракцій.)
+
+______Потоки ввода-вывода. Работа с файлами________
+
+В основе всех классов, управляющих потоками байтов, находятся два абстрактных класса:
+InputStream (представляющий потоки ввода) и OutputStream (представляющий потоки вывода)
+Но поскольку работать с байтами не очень удобно, то для работы с потоками символов были добавлены
+абстрактные классы Reader (для чтения потоков символов) и Writer (для записи потоков символов).
+
+_____Seryalization_____
+Сразу надо сказать, что сериализовать можно только те объекты, которые реализуют интерфейс
+Serializable. Этот интерфейс не определяет никаких методов, просто он служит указателем системе,
+ что объект, реализующий его, может быть сериализован.
+
+
+Для сериализации объектов в поток используется класс ObjectOutputStream. Он записывает данные
+в поток.
+Класс ObjectInputStream отвечает за обратный процесс - чтение ранее сериализованных данных из
+потока. В конструкторе он принимает ссылку на поток ввода:
+
+______lambda_func______
+Основу лямбда-выражения составляет лямбда-оператор, который представляет стрелку ->. Этот
+ оператор разделяет лямбда-выражение на две части: левая часть содержит список параметров
+ выражения, а правая собственно представляет тело лямбда-выражения, где выполняются все действия.
+
+Лямбда-выражение не выполняется само по себе, а образует реализацию метода, определенного
+в функциональном интерфейсе. При этом важно, что функциональный интерфейс должен содержать
+ только один единственный метод без реализации.
+    </pre>
+
+
+
+    <h3 id="Servlets">Servlets</h3>
+    <pre>
+      ****Servlets*****
+
+      @WebServlet("/servlet") - маппінг сервлета
+      
+      Перенаправлення ( без зміни адреси)
+      {
+          ServletContext context = getServletContext();
+          RequestDispatcher dispatcher = context.getRequestDispatcher("/notfound.html");
+          dispatcher.forward(req,resp);
+      }
+      переадресація ( зі зміною адреси)
+      {
+          resp.sendRedirect(req.getContextPath() + "/notfound.html");
+      }
+      InitParameters - діють лише для 1 сервлета
+      ContexParameters - глобальна дія, всюди видно
+      Session - має свій термін дії і параметри // якщо поставити термін (-1), то діє до закриття браузера
+      Cookies (можемо передавати якісь дані, лише Стрінг) а так, то вони автоматично призначаються в сесії, хотя можна і провіряти їх
+    </pre>
+    <hr>
+
+
+
+
+    <h3 id="JSP">JSP</h3>
+    <pre>
+      ************************************
+      ************** JSP *****************
+      ************************************
+
+      це насправді самий обичний сервлет з джава коду вкінці кінців
+
+      <%
+          Java code....
+      %>
+
+      we have 3 directives in JSP:
+      1) page         <%@ page import="notreClass.*, secondClass.*" %>
+      2) taglib       <%@ taglib  %>
+      3) include      <%@ include file="header.html" %>   // add(instert) this html to our file .jsp
+
+      scriplet -   <%  code to do...not showing automaticaly  %> use `;`
+      expression - <%=   code..    %>  // dont use `;`   // тобто = is equal to out.println
+      declaration - <%! int i = 0; %> // use `;` тут ми оголошуємо static змінні, які будуть жити весь час,а не локально
+
+      ExpressionLanguage  (Її краще їзати ніж скріплети, більж безпечно і читабельніше)
+      щоб відображити текст пишемо просто ${person.name} !!!!!!!але краще писати ${person["name"]}
+
+      <%@ page isELIgnored="false"%>
+      добавляти,якщо не паше EL
+      <\jsp:include page="header.html"/> - добавляє сторінку
+
+    </pre>
+    <hr>
+
+
+
+
+
+    <h3 id="JSTL">JSTL</h3>
+    <pre>
+      ************************************************
+      ******************JSTL**************************
+      ************************************************
+
+      If
+      forEach
+      Choose | when
+      url
+      redirect
+      set (remove)
+      import (include page)
+
+      <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+      <\c:if test='${element}'> <\c:if> - JSTL if
+
+      <\c:forEach var='elememnt' items='${list}'>
+          <\h3>${elememnt}<\h3>
+      <\c:forEach> JSTL forEach
+
+      <\:choose>
+          <\c:when test="${......}"><\c:when>
+          <\c:otherwise>
+              default
+          <\c:otherwise>
+      <\c:choose>
+
+      <\c:set<\c:set> - analog of getProperty
+
+      <\c:try var=”exception name"> code... <\c:try>   - try catch in JSP
+      
+      <\a href=” <\c:url value=’/inputComments.jsp’ /> ”>Click here</a>
+      in value we auto add Cookies to the end of url(if cookies are disabled)
+      we use this when we cand send cookies,otherwise we need add a sessionId to the end of URL in servlet (response.encodeURL(“/BeerTest.do”))
+
+
+      The designated ERROR page (“errorPage.jsp”)
+      <%@ page isErrorPage=”true” %> - обозначаємо, шо ця сторінка є СТАНДАРТНА ЕРРОР СТОРІНКА
+      ${pageContext.exception} - to show the exception
+
+      The BAD page that throws an exception (“badPage.jsp”)
+      <%@ page errorPage=”errorPage.jsp” %> - а це вставляємо в сторінку, шоб вона знала куди переходити якщо буде помилка
+      !!! також Еrror page можна задавати в настройках сервлета.xml
+  <img src="res/Screenshot from 2020-02-12 23-01-20.png" alt="CODE JSTL" width="35%">
+</body></html>
+      
+    </pre>
+    <hr>
+
+
+
+    <h3 id="SQL">SQL</h3>
+    <pre>
+    ____ Join ____
+    1) Inner join - зєднує все спільне цих двох таблиць
+    2)Left outer join - всі строки зліва, якщо справа нема співпадіння по цій строці, то там null
+    3)Right outer join - всі строки справа, якщо зліва нема співпадіння по цій строці, то там null
+    4)Full outer join - це left+right join
+    5)croos join - кожна строка з першої таблиці зєднується з кожною строкою другої
+  </pre>
+    <hr>
+
+    <h3 id="JDBC">JDBC</h3>
+    <pre>
+      *******************************************
+      ******************* JDBC ******************
+      *******************************************
+
+      берем Connection from DriverManager
+
+      3 types of statement
+      - Statement
+      - PreparedStatement
+      - CallableStatement (коли є процедури( скріпт) в базі данних)
+
+      і в них пишем SQL запит
+      ****************
+      всі вони видають ResultSet з якого дістаємо результати
+      також ми можемо редагувати напряму базу данних, якщо після квері добавимо ResultSet.TYPE_SCROLL_SENSITIVE i ResultSet.CONCUR_WRITE..
+
+      для того, щоб витягувати з ResultSet - має бути стабільно звязок з базою
+      для того, щоб ритися в таблиці без конекту до бази існує CachedRowSet який приймає в себе ResultSet
+
+
+      ______MetaData____
+      ResultSetMetaData = дані про таблицю і її структуру. дістаємо з готового резалтСету
+      DatabaseMetaData = беремо конекшн і витягуємо мета дату. і маємо дані про таблицю
+
+      SAVEPOINT
+      можна відкатуватись за рахунок Savepoint
+      виключаємо автокоміт
+      connection.setAutoCommit(false)
+      беремо connection.rollback(savepoint) відкатумось до точки, по дефолту відкатись до початку конекту
+      connection.commit();
+
+      Batch - екзекютить декілька команда executeUpdate  за 1 конекшн(раз) - тобто швидше
+      connection.setAutoCommit(false)
+      statement.addBatch("query");
+      connection.commit();
+    </pre>
+    <hr>
+
+    <h3 id="Hibernate">Hibernate</h3>
+    <pre>
+      *******************************************
+      ************** Hibernate ******************
+      *******************************************
+
+      SesionFactory (створюється на основі xml конфіга і мапи(або ще один хмл,або анотації))
+      MapObject(Annotation or XML)
+
+      // Creating SessionFactory using 4.2 version of Hibernate
+          private void initSessionFactory(){
+          Configuration config = new Configuration().configure();
+      // Build a Registry with our configuration properties
+          ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
+          config.getProperties()).buildServiceRegistry();
+      // create the session factory
+          sessionFactory = config.buildSessionFactory(serviceRegistry);
+      }
+
+      STRUCTURES
+
+      POJO(ОБ'ЄКТ В JAVA) or AJO                      ->
+      Manager()                                       ->
+      SesionFactory->Sesion->Transaction              ->
+      MySQL
+
+      @Entity -> клас який буде таблицею
+      @Table(name="table_1")
+
+      @Id
+      @Column(name = "column_1")
+
+      @Column(name="column_2")
+
+
+      @Embeddable (над класом, який включається)
+      коли данний клас є обєктом в таблиці (клас встроєнний в таблицю, а не примітив)
+      він може виступати як Id і бути тим самим композитним Id, бо в таблиці встрояться його строчки)
+
+      або @EmbeddedID ( замість просто @Іd), тоді встроєний клас не тре позначати @Embeddable
+
+
+      @OneToMany
+      @ManyToMany
+      @OneToOne
+
+
+      @JoinTable
+
+      @JoinColumn
+      @Cascade(CascadeType.)  .ALL .DELETE .DELETE-ORPHAN
+      List<car> list = new ArrayList();
+
+
+      @Basic
+          всі примітивні типи
+      @Component
+          силочні обєкти(класи,об'єкти, які створені програмістом)
+
+      INHERITANCE
+      1) By class  (SINGLE_TABLE) одна таблиця, розділена внутрішньо діскрімінатором
+              PARENT
+          @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+          @DiscriminatorColumn(name="DISCRIMINATOR"
+          discriminatoryType=DicriminatorType.STRING)
+          @DiscriminatorValue(value="EMPLOYEE")
+              CHILD
+          @DiscriminatorValue(value="EXECUTIVE")
+      2) by subclass (JOINED) 2 таблиці звязані праймеріКейом
+              PARENT
+          @Inheritance(strategy= InheritanceType.JOINED)
+              CHILD
+          @PrimaryKeyJoinColumn(name="EMPLOYEE_ID")
+      3)conrete par table (TABLE_PER_CLASS) кожному класі окрема таблиця, child отримує всю інфу по parent
+              PARENT
+          @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+              CHILD
+          NOTHING
+
+
+      CACHE
+      - 1 LVL LOCAL
+      коли юзаєш якусь таблицю,ряд то він в кеші сидить на рівні сесії і упрощаю редагування рядка, не тре знову зверататись
+      - 2 LVL GLOBAL
+      читання редагування як в 1 лвл але на рівні сеншФабрики
+      є 4 типи доступу (transactional,read only,read-write, non-strict-read-write)
+
+
+
+      QUERY (похоже як в JDBC)
+      // Get the current session
+          Session session = sessionFactory.getSesion();
+      // Instance of the query is created from this session
+          Query query = session.createQuery("from TravelReview");
+
+
+      private void getAllTravelReviews() {
+          Query query = session.createQuery("from TravelReview"); // Statement
+          List<TravelReview> reviews = query.list();  //ResultSet
+          for (TravelReview travelReview : reviews) {
+          System.out.println("Travel Review: " + travelReview);
+          }
+
+      // PreparedStatement ***************
+      Query query = session.createQuery("from TravelReview where title=:titleId");
+      query.setString("titleId", city);
+
+      query.setMaxResults(100); - витягне до 100 результату
+      query.setFirstResult(10); - почне витягати з 10 результату
+      TravelReview review = (TravelReview) query.uniqueResult(); - only one record for a query criteria
+
+
+      Creteria -> Restriction
+      Projection
+
+      @NamedQuery or NamedQueries
+    </pre>
+    <hr>
+
+    <h3 id="JPA">JPA</h3>
+    <pre>
+    Ше не поняв нашо він,але на пряму все звязано з Хібернейтом
+
+    починається все з persistence.xml, де вказуються настройки і основним є провайдер, там як раз вказуємо Хібернейт чи то, чим користуємось
+
+    потім йде EntityManagerFactory ->
+        EntityManagerFactory tradeFactory = Persistence.createEntityManagerFactory("trading-entities");
+    і далі створюємо EntityManager (Аналог Sesion) ->
+        EntityManager manager = factory.createEntityManager();
+
+    @Resource
+  </pre>
+    <hr>
+
+    <h3 id="Spring">Spring</h3>
+    <pre>
+    Spring
+  </pre>
+    <hr>
+
+    <h3 id="JUnit">JUnit</h3>
+    <pre>
+    JUnit
+  </pre>
+    <hr>
+
+</body>
+
+</html>
