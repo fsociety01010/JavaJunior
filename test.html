@@ -2,40 +2,54 @@
 <html>
 
 <head>
-
     <meta charset="utf-8" />
-    <title>JavaScript</title>
+    <title>jQuery</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="./testjs.js"></script>
+    <style>
+        .toggle {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        $("document").ready(function() {
+            $("#append").click(() => {
+                $("pre > p:first").append("BYEEEEEEEEEEEEEEEEEEEEEEEEEE")
+            })
+        })
+
+        $("document").ready(function() {
+            $("#preppend").click(() => {
+                $("pre > p:first").html("BYEEEEEEEEEEEEEEEEEEEEEEEEEE")
+            })
+        })
+    </script>
 </head>
 
 <body>
-    <script>
-        arr = [333, true, "sss", 55, 55];
-        arr[7] = 55;
-        arr[11] = 77;
 
-        console.log(...arr);
-        console.log("arr = " + arr);
+    <h1>I LOVE JS</h1>
+    <a href="#" id="append">append</a> | <a href="#" id="preppend">preppend</a>
+    <div id="textbox">
+        <pre> <p id="bad">In US law, a pretext usually describes false reasons that hide the true intentions or motivations for a legal action. If a party can estab
+            lish a prima facie case for the proffered evidence, the opposing party must prove that these
+            reasons were "pretextual" or false. This can be accomplished by directly demonstrating that the motivations behind the presentation of evidence is false, or indirectly by evidence 
+            that the motivations are not "credible".[1] In Griffith v. Schnitzer,
+            an employment discrimination case, a jury award was reversed by a Court of Appeals because the evidence was not sufficient that the defen
+            dant's reasons were "pretextual". That is, the defendant's evidence was either undisputed, or the plaintiff's
+            was "irrelevant subjective assessments and opinions".[2] A "pretextual" arrest by law enforcement officers is one carried out for illegal p</p>
+        
+        
+        <p>  rposes such as to conduct an unjustified search and seizure.[3][4] Marble Boat on Kunming Lake near Beijing
+            As one example of pretext, in the 1880s, the Chinese government raised money on the pretext of modernizing the Chinese navy. Instead, these funds wer
+            e diverted to repair a ship-shaped, two-story pavilion which had been originally constructed for
+            the mother of the Qianlong Emperor. This pretext and the Marble Barge are famously linked with Empress Dowager Cixi. This architectural
+             folly, known today as the Marble Boat (Shifang), is "moored" on Lake Kunming in what the empress renamed the
+            "Garden for Cultivating Harmony" (Yiheyuan).[5]</p>
+        </pre>
+    </div>
 
-        console.log("for (var i in arr) { } - получение типов элементов массива");
-        for (var i in arr) { // Пропустит undefined-элементы массива. Вместо идущих подряд одинаковых типов, отобразит только 1 тип.
-            console.log(typeof(arr[i]));
-        }
-
-        console.log("for (var i in arr) { }");
-        for (var i in arr) { // Пропустит undefined-элементы массива. Вместо идущих подряд одинаковых элементов, отобразит только 1 элемент.
-            console.log(arr[i]);
-        }
-
-        console.log("for (var a of arr) { }");
-        for (var a of arr) { // Для неопределенных и определенных одинаковых элементов, идущих подряд, отобразит только 1 элемент.
-            console.log(a);
-        }
-
-        console.log("for (var i = 0; i < arr.length; i++) { }");
-        for (var i = 0; i < arr.length; i++) { // Для неопределенных и определенных одинаковых элементов, идущих подряд, отобразит только 1 элемент.
-            console.log(arr[i]);
-        }
-    </script>
 </body>
 
 </html>
