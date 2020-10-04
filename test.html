@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>jQuery</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="./testjs.js"></script>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <style>
-        .toggle {
-            background-color: black;
-            color: white;
-        }
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
     </style>
+  </head>
+  <body>
+    <div id="map"></div>
     <script>
-        $("document").ready(function() {
-            $("#append").click(() => {
-                $("pre > p:first").append("BYEEEEEEEEEEEEEEEEEEEEEEEEEE")
-            })
-        })
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
 
-        $("document").ready(function() {
-            $("#preppend").click(() => {
-                $("pre > p:first").html("BYEEEEEEEEEEEEEEEEEEEEEEEEEE")
-            })
-        })
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
     </script>
-</head>
-
-<body>
-
-    <h1>I LOVE JS</h1>
-    <a href="#" id="append">append</a> | <a href="#" id="preppend">preppend</a>
-    <div id="textbox">
-        <pre> <p id="bad">In US law, a pretext usually describes false reasons that hide the true intentions or motivations for a legal action. If a party can estab
-            lish a prima facie case for the proffered evidence, the opposing party must prove that these
-            reasons were "pretextual" or false. This can be accomplished by directly demonstrating that the motivations behind the presentation of evidence is false, or indirectly by evidence 
-            that the motivations are not "credible".[1] In Griffith v. Schnitzer,
-            an employment discrimination case, a jury award was reversed by a Court of Appeals because the evidence was not sufficient that the defen
-            dant's reasons were "pretextual". That is, the defendant's evidence was either undisputed, or the plaintiff's
-            was "irrelevant subjective assessments and opinions".[2] A "pretextual" arrest by law enforcement officers is one carried out for illegal p</p>
-        
-        
-        <p>  rposes such as to conduct an unjustified search and seizure.[3][4] Marble Boat on Kunming Lake near Beijing
-            As one example of pretext, in the 1880s, the Chinese government raised money on the pretext of modernizing the Chinese navy. Instead, these funds wer
-            e diverted to repair a ship-shaped, two-story pavilion which had been originally constructed for
-            the mother of the Qianlong Emperor. This pretext and the Marble Barge are famously linked with Empress Dowager Cixi. This architectural
-             folly, known today as the Marble Boat (Shifang), is "moored" on Lake Kunming in what the empress renamed the
-            "Garden for Cultivating Harmony" (Yiheyuan).[5]</p>
-        </pre>
-    </div>
-
-</body>
-
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+  </body>
 </html>
